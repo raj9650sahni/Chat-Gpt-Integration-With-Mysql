@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+<div style="background:aqua;">
+    <div style="width:100%; height:100%; margin-left:400px;">
+        <h1>Enter your chat query</h1>
+        <form id='myForm'>
+            <textarea type="text" id="search-query" name="search-item" style="width: 500px; height:100px;"></textarea>
+        </form>
+         <input type="submit" onclick="validate()" value="chat" style="width:100px; height:50px; margin-top:15px; margin-left:200px; background:teal;">
+    </div>
+    <div id='books'></div>
+
+    <div>
+        <script>
+             function validate() {
+             var searchQuery = document.getElementById("search-query").value;
+             $('#myForm')[0].reset();
+
+            $.ajax(
+            {
+                type:"GET",
+                url: "/query/database/",
+                data:{
+                         query: searchQuery
+                },
+                success: function(data) {
+                    alert(data.message)
+
+                }
+             })
+
+             }
+
+        </script>
+    </div>
+</div>
+</body>
+</html>
