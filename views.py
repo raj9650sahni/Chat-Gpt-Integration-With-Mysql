@@ -8,7 +8,7 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from langchain.chat_models import ChatOpenAI
 
-os.environ['OPENAI_API_KEY'] = "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"
+os.environ['OPENAI_API_KEY'] = "use your open api key here"
 
 
 @method_decorator(csrf_exempt, name='dispatch')
